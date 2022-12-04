@@ -74,7 +74,7 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const WSserver = new WebSocket.Server({
-  port: parseInt(process.env.PORT)
+  port: 8080
 });
 
 let sockets: WebSocket[] = [];
