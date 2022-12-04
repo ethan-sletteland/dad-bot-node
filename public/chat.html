@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="./style/chat.css">
+    <script type="text/javascript">
+
+        const ws = new WebSocket('ws://localhost:8080');
+  
+        ws.onopen = function() {    
+          document.querySelector('#new-chat-form').addEventListener('submit', function(e) {
+            e.preventDefault()
+            ws.send(document.querySelector('[name="new-chat"]').value);
+          });
+        };
+  
+        ws.onmessage = function(msg) {
+            const data = JSON.parse(msg.data)
+            document.querySelector('#chat-responses').innerHTML += `<li>${data.name}: ${data.data}</li>`;
+        };
+    </script>
+</head>
+<body>
+    <h1>This is a really bad chatbot</h1>
+    <form id="new-chat-form">
+      <label for="new-chat">Talk to me</label>
+      <input name="new-chat" type="text">
+      <button>Send</button>
+    </form>
+    <ul id="chat-responses"></ul>
+</body>
+</html>

@@ -1,0 +1,10 @@
+#new-chat-form {
+
+}
+#chat-responses {}
+
+#chat-responses li {
+    list-style: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
