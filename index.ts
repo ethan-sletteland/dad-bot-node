@@ -73,26 +73,26 @@ const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// const WSserver = new WebSocket.Server({
-//   port: 8080
-// });
+const WSserver = new WebSocket.Server({
+  port: 8080
+});
 
 let sockets: WebSocket[] = [];
-// WSserver.on('connection', (socket: WebSocket) => {
-//   sockets.push(socket); 
+WSserver.on('connection', (socket: WebSocket) => {
+  sockets.push(socket); 
 
-//   // When you receive a message, send that message to every socket.
-//   socket.on('message', (msg: WebSocket.RawData) => {
-//     const newMsg: Msg = {name: 'Me', data: msg.toString()}
-//     sockets.forEach(s => s.send(JSON.stringify(newMsg)));
-//     sockets.forEach(s => s.send(JSON.stringify(responses[Math.floor(Math.random() * responses.length)])));
-//   });
+  // When you receive a message, send that message to every socket.
+  socket.on('message', (msg: WebSocket.RawData) => {
+    const newMsg: Msg = {name: 'Me', data: msg.toString()}
+    sockets.forEach(s => s.send(JSON.stringify(newMsg)));
+    sockets.forEach(s => s.send(JSON.stringify(responses[Math.floor(Math.random() * responses.length)])));
+  });
 
-//   // When a socket closes, or disconnects, remove it from the array.
-//   socket.on('close', () => {
-//     sockets = sockets.filter(s => s !== socket);
-//   });
-// });
+  // When a socket closes, or disconnects, remove it from the array.
+  socket.on('close', () => {
+    sockets = sockets.filter(s => s !== socket);
+  });
+});
 const botname = 'The Bot'
 const responses: Msg[] = [
   {name: botname, data:'What?'},
