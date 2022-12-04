@@ -1,7 +1,7 @@
-import http from "http";
-import path from "path";
-import fs from "fs";
-import WebSocket from "ws";
+import * as http from "http";
+import * as path from "path";
+import * as fs from "fs";
+import * as WebSocket from "ws";
 
 const server: http.Server = http.createServer((req, res) => {
 
