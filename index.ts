@@ -202,5 +202,7 @@ const dadJokes = [
   "What does an angry pepper do? It gets jalapeño your face.",
   "What did the buffalo say to his son when he dropped him off at school? Bison.",
   "What do you call someone with no body and no nose? Nobody knows.",
-  "Why did the crab never share? Because he's shellfish."
+  "Why did the crab never share? Because he's shellfish.",
+  "there are only three hard problems in computer science: 0: naming things, 2: asynchronous callbacks, 1: cache invalidation, 3: off-by-one errors",
+  "I was touring bio-dynamic farms last week, and I met an award winning farmer. Hhe was out standing in his field.",
 ]
