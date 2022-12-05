@@ -8,17 +8,22 @@
     "build": "tsc",
     "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
     "watch-node": "nodemon dist/index.js",
+    "watch": "nodemon index.ts",
     "watch-ts": "tsc -w",
     "deploy": "git add . && git commit -m Heroku && git push"
   },
   "author": "ethan",
   "license": "ISC",
-  "engines": { "node": "17.8.0" },
+  "engines": {
+    "node": "17.8.0"
+  },
   "dependencies": {
+    "http-proxy": "^1.18.1",
     "uuid": "^9.0.0",
     "ws": "^8.11.0"
   },
   "devDependencies": {
+    "@types/http-proxy": "^1.17.9",
     "@types/ws": "^8.5.3",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",

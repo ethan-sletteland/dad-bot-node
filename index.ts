@@ -3,6 +3,8 @@ import * as path from "path";
 import * as fs from "fs";
 import * as WebSocket from "ws";
 
+var NODE_PORT = 4711;
+
 const server: http.Server = http.createServer((req, res) => {
 
   const url: string = req.url ? (req.url === "/" ? "index.html" : req.url) : 'index.html'
@@ -73,9 +75,10 @@ const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-const WSserver = new WebSocket.Server({
-  port: 8080
-});
+var WSserver = new WebSocket.Server({server: server})
+// const WSserver = new WebSocket.Server({
+//   port: NODE_PORT
+// });
 
 let sockets: WebSocket[] = [];
 WSserver.on('connection', (socket: WebSocket) => {
@@ -93,6 +96,7 @@ WSserver.on('connection', (socket: WebSocket) => {
     sockets = sockets.filter(s => s !== socket);
   });
 });
+
 const botname = 'The Bot'
 const responses: Msg[] = [
   {name: botname, data:'What?'},
