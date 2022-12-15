@@ -7,7 +7,7 @@
     "start": "node dist/index.js",
     "build": "tsc",
     "postinstall": "tsc && mv -i -v public dist/ && rm -v -rf src",
-    "watch": "nodemon index.ts",
+    "watch": "nodemon index.ts localhost 8080",
     "deploy": "git add . && git commit -m Heroku && git push"
   },
   "author": "ethan sletteland",
