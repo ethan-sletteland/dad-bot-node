@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
     <link rel="stylesheet" href="./style/chat.css">
+    <script src="./nav/nav.js"></script>
     <script type="text/javascript">
 
         var host = location.origin.replace(/^http/, 'ws')
@@ -24,13 +25,14 @@
     </script>
 </head>
 <body>
-    <h1>Nice to meet you Hungry, I'm Dad</h1>
-    <p>(a Node powered chat-bot that tells dad jokes, thanks <a href="https://github.com/mikemcbride/dad-jokes/">@mikemcbride</a> for the jokes)</p>
-    <form id="new-chat-form">
-      <label for="new-chat">Talk to me</label>
-      <input name="new-chat" type="text">
-      <button>Send</button>
-    </form>
-    <ul id="chat-responses"></ul>
+  <h1>Nice to meet you Hungry, I'm Dad</h1>
+  <ethan-nav></ethan-nav>
+  <p>(a Node powered chat-bot that tells dad jokes, thanks <a href="https://github.com/mikemcbride/dad-jokes/">@mikemcbride</a> for the jokes)</p>
+  <form id="new-chat-form">
+    <label for="new-chat">Talk to me</label>
+    <input name="new-chat" type="text">
+    <button>Send</button>
+  </form>
+  <ul id="chat-responses"></ul>
 </body>
 </html>

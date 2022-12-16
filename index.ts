@@ -77,9 +77,6 @@ const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 var WSserver = new WebSocket.Server({server: server})
-// const WSserver = new WebSocket.Server({
-//   port: NODE_PORT
-// });
 
 let sockets: WebSocket[] = [];
 const botname = 'DadBot'
@@ -103,13 +100,6 @@ WSserver.on('connection', (socket: WebSocket) => {
     sockets = sockets.filter(s => s !== socket);
   });
 });
-
-const responses: Msg[] = [
-  {name: botname, data:'What?'},
-  {name: botname, data:'That seems strange...'},
-  {name: botname, data:'Did you know birds are dinasaurs?'},
-  {name: botname, data:'Right?'},
-]
 
 interface Msg {
   name: string
