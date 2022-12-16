@@ -14,6 +14,9 @@ template.innerHTML = `
         text-decoration: none;
         color: black;
       }
+      a:hover {
+        color: green;
+      }
     </style>
     <nav> 
       <ul>
