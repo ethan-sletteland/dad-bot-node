@@ -6,7 +6,7 @@ import dadJokes from "./jokes.json"
 
 var NODE_PORT = 4711;
 
-const server: http.Server = http.createServer((req, res) => {
+export const server: http.Server = http.createServer((req, res) => {
 
   const url: string = req.url ? (req.url === "/" ? "index.html" : req.url) : 'index.html'
   // Build file path
@@ -76,7 +76,7 @@ const PORT = process.env.PORT || 8080;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-var WSserver = new WebSocket.Server({server: server})
+export const WSserver = new WebSocket.Server({server: server})
 
 let sockets: WebSocket[] = [];
 const botname = 'DadBot'
@@ -101,7 +101,7 @@ WSserver.on('connection', (socket: WebSocket) => {
   });
 });
 
-interface Msg {
+export interface Msg {
   name: string
   data: string
 }
